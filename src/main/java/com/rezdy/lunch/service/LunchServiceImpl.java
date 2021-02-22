@@ -29,7 +29,8 @@ public class LunchServiceImpl implements LunchService {
 
     @Override
     public List<Recipe> getRecipesOnBestBeforeAndUseBy(LocalDate date) {
-        return recipeDAO.listALLByDateOnBestBeforeAndUseBy(date);
+        List<Recipe> recipes = recipeDAO.listALLByDateOnBestBeforeAndUseBy(date);
+        return sortRecipes(recipes);
     }
 
     public Optional<Recipe> getRecipeByTitle(String title) {
